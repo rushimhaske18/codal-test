@@ -1,0 +1,273 @@
+{{ 'new-main-product.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
+  <div class="product-metafields-wrapper content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
+    <div class="product-metafields-inner__wrapper {% if section.settings.full_width %} page-width{% endif %}">
+      <div class="text-block">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'product_description' -%}
+            <div class="data_block-wrapper {% if block.settings.is_open %}is-open{% endif %}">
+            <div class="title_wrapper">
+              <h4 class="block_title">{{ block.settings.heading }}</h4>
+              <span>{% render 'icon-arrow' %}</span>
+            </div>
+            {% if block.settings.show_desciption %}
+               <div class="accordion-single-content">{{ product.description }}</div>
+             {% else %} 
+              <div
+                class="accordion-single-content rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {{ block.shopify_attributes }}
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {{ block.settings.text }}
+              </div>
+            {% endif %}
+            </div>  
+            {% when 'product_specifications' %}
+            <div class="data_block-wrapper">
+              <div class="title_wrapper">
+                <h4 class="block_title">{{ block.settings.heading }}</h4>
+                <span>{% render 'icon-arrow' %}</span>
+              </div>
+                <div class="accordion-single-content">
+                  <table>
+                    {% for spec in shop.metaobjects.specification.values %}
+                      {% assign is_odd = forloop.index0 | modulo: 2 %}
+                      <tr {% if is_odd == 1 %}style="background-color:#f2f2f2"{% endif %}>
+                        <td><strong>{{ spec.name }}</strong></td>
+                        <td>{{ spec.value }}</td>
+                      </tr>
+                    {% endfor %}
+                  </table>
+                </div>
+            </div>
+
+            {% when 'product_datasheets' %}
+            <div class="data_block-wrapper">
+              <div class="title_wrapper">
+                <h4 class="block_title">{{ block.settings.heading }}</h4>
+                
+                {% assign data_sheets_count = shop.metaobjects.data_sheet.values_count %}
+                <span class="var-size-wrapper">
+                  <span class="var-size">{{ data_sheets_count }}</span> 
+                  {% render 'icon-arrow' %}
+                </span>
+              </div>
+            
+              <div class="accordion-single-content">
+                {% for entry in shop.metaobjects.data_sheet.values %}
+                  <div class="data-sheet-entry" style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    {% render 'icon-pdf' %}
+                    {% if entry.url != blank %}
+                      <a href="{{ entry.url }}" target="_blank" rel="noopener" class="data-sheet-link" style="text-decoration: underline; color: #1a1a1a;">
+                        {{ entry.name }}
+                      </a>
+                    {% else %}
+                      <span>{{ entry.name }}</span>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            {% when 'product_variants' %}
+            <div class="data_block-wrapper">
+            <div class="title_wrapper">
+              <h4 class="block_title">{{ block.settings.heading }}</h4>
+              <span class="var-size-wrapper">
+                <span class="var-size">{{ product.variants | size }}</span> 
+                {% render 'icon-arrow' %}
+              </span>
+            </div>
+            {% if block.settings.show_avaiable_variants %}
+              <div class="accordion-single-content">
+               <ul class="variants_wrapper">
+                 {% for variant in product.variants %}
+                  <li class="{% unless variant.available %}unavailable{% endunless %}">{{ variant.title }}</li>
+                 {% endfor %}
+               </ul>
+              </div>
+            {% endif %}
+            </div>
+            {% when 'product_compare' %}
+            <div class="data_block-wrapper">
+            <div class="title_wrapper">
+              <h4 class="block_title">{{ block.settings.heading }}</h4>
+              <span class="var-size-wrapper">
+                <span class="var-size">{{ '2' }}</span> 
+                {% render 'icon-arrow' %}
+              </span>
+            </div>
+            {% if block.settings.show_compare %}
+               <div class="accordion-single-content"></div>
+            {% endif %}
+            </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  
+const accSingleTriggers = document.querySelectorAll('.title_wrapper');
+accSingleTriggers.forEach(trigger => trigger.addEventListener('click', toggleAccordion));
+
+function toggleAccordion() {
+  const items = document.querySelectorAll('.data_block-wrapper');
+  const thisItem = this.parentNode;
+
+  items.forEach(item => {
+    if (thisItem == item) {
+      thisItem.classList.toggle('is-open');
+      return;
+    }
+    item.classList.remove('is-open');
+  });
+}
+</script>
+ 
+{% schema %}
+{
+  "name": "Dynamic product info",
+  "tag": "section",
+  "class": "section product-information-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "Enable full width"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_description",
+      "name": "Product description",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_desciption",
+          "label": "Show product description",
+          "info": "If it is enabled then below text will not show"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_open",
+          "label": "Defualt open this tab",
+          "default": true
+        },
+      ]
+    },
+    {
+      "type": "product_specifications",
+      "name": "Product specifications",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_open",
+          "label": "Defualt open this tab",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "product_datasheets",
+      "name": "Product data sheets",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_open",
+          "label": "Defualt open this tab",
+          "default": true
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dynamic product info",
+      "blocks": [
+        {
+          "type": "product_description"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

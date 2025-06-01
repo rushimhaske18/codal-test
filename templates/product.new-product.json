@@ -1,0 +1,121 @@
+{
+  "sections": {
+    "main": {
+      "type": "new-product",
+      "blocks": {
+        "title_8wpQKP": {
+          "type": "title",
+          "settings": {}
+        },
+        "variant_picker_dFzh8M": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "price_9nmprG": {
+          "type": "price",
+          "settings": {
+            "product_sku": "SKU 219875"
+          }
+        },
+        "text_VLW8jb": {
+          "type": "text",
+          "settings": {
+            "text_show": "Shell Helix Ultra ECT C3 features its most advanced emissions-compatible technology that helps to keep diesel particulate filters clean to help maintain engine performance. It helps to reduce engine friction to provide enhanced fuel economy.",
+            "text_hidden": "<strong>Additional Content:<\/strong> Shell Helix Ultra ECT C3 features its most advanced emissions-compatible technology that helps to keep diesel particulate filters clean to help maintain engine performance. It helps to reduce engine friction to provide enhanced fuel economy.",
+            "text_style": "body"
+          }
+        },
+        "buy_buttons_C4rMBA": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "quantity_selector_UyCRnr": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "wishlist_xUgD6X": {
+          "type": "wishlist",
+          "settings": {
+            "wishlist": "Add to list",
+            "wishlist_link": "Show my favourites"
+          }
+        }
+      },
+      "block_order": [
+        "title_8wpQKP",
+        "variant_picker_dFzh8M",
+        "price_9nmprG",
+        "text_VLW8jb",
+        "buy_buttons_C4rMBA",
+        "quantity_selector_UyCRnr",
+        "wishlist_xUgD6X"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-87f29022-4312-44c4-8045-bdd66684eabf",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "new_product_info_WTFxUm": {
+      "type": "new-product-info",
+      "blocks": {
+        "product_description_N9JVNf": {
+          "type": "product_description",
+          "settings": {
+            "heading": "Product Description",
+            "show_desciption": false,
+            "text": "<p>{{ product.metafields.custom.short_description | metafield_tag }}<\/p>",
+            "is_open": true
+          }
+        },
+        "product_specifications_a6Keyc": {
+          "type": "product_specifications",
+          "settings": {
+            "heading": "Specification",
+            "show_specifications": true,
+            "text": ""
+          }
+        },
+        "product_datasheets_WV4Nt6": {
+          "type": "product_datasheets",
+          "settings": {
+            "heading": "Product Data Sheets",
+            "show_datasheets": false,
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_description_N9JVNf",
+        "product_specifications_a6Keyc",
+        "product_datasheets_WV4Nt6"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "new_product_info_WTFxUm"
+  ]
+}

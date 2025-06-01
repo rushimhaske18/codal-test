@@ -1,0 +1,44 @@
+<div class="main__wrapper">
+  <div class="page-width main-breadcrumbs">
+    {%- unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' -%}
+      {%- assign t = template | split: '.' | first -%}
+      <nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="/">Home</a>
+          </li>
+          {%- case t -%}
+            {%- when 'product' -%}
+              {%- if collection.url -%}
+                <li class="breadcrumbs__item">
+                  {{ collection.title | link_to: collection.url }}
+                </li>
+              {%- endif -%}
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
+              </li>
+          {%- endcase -%}
+        </ol>
+      </nav>
+      <div class="product_price">
+        <div id="price-{{ section.id }}" role="status">
+          {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+        </div>
+        <div class="buy_button_header">
+          <button id="buy_button_head" class="buy_button_head button button--full-width button--primary">
+            {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+              {{ 'products.product.sold_out' | t }}
+            {%- else -%}
+              {{ 'products.product.add_to_cart' | t }}
+            {%- endif -%}
+          </button>
+        </div>
+      </div>
+
+      <script type="application/ld+json">
+        {{ product | structured_data }}
+      </script> 
+
+    {%- endunless -%}
+  </div>
+</div>

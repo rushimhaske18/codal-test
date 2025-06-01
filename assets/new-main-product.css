@@ -1,0 +1,593 @@
+@font-face {
+  font-family: "Eurostile Demi";
+  src: url(https://cdn.shopify.com/s/files/1/0754/8154/6990/files/Eurostile-Demi-Demi.woff2?v=1748778611)
+    format("woff2");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MyriadPro Regular";
+  src: url(https://cdn.shopify.com/s/files/1/0870/5235/3821/files/MyriadPro-Regular.woff2?v=1723381627)
+      format("woff2"),
+    url(https://cdn.shopify.com/s/files/1/0870/5235/3821/files/MyriadPro-Regular_327093c7-1792-4d3c-88d4-fc8a971f6c01.woff?v=1723381627)
+      format("woff"),
+    url(https://cdn.shopify.com/s/files/1/0870/5235/3821/files/MyriadPro-Regular.ttf?v=1723381628)
+      format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MyriadPro Medium";
+  src: url(https://cdn.shopify.com/s/files/1/0870/5235/3821/files/MyriadPro-Semibold.woff2?v=1723381628)
+      format("woff2"),
+    url(https://cdn.shopify.com/s/files/1/0870/5235/3821/files/MyriadPro-Semibold_e8de8833-22bb-4d33-b476-ac04cb537131.woff?v=1723381627)
+      format("woff"),
+    url(https://cdn.shopify.com/s/files/1/0870/5235/3821/files/MyriadPro-Semibold.ttf?v=1723381628)
+      format("truetype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MyriadPro Bold";
+  src: url(https://cdn.shopify.com/s/files/1/0870/5235/3821/files/MyriadPro-Bold.woff2?v=1723381627)
+      format("woff2"),
+    url(https://cdn.shopify.com/s/files/1/0870/5235/3821/files/MyriadPro-Bold.woff?v=1723381627)
+      format("woff"),
+    url(https://cdn.shopify.com/s/files/1/0870/5235/3821/files/MyriadPro-Bold.ttf?v=1723381628)
+      format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+.custom-product__section .grid__item.product__media-wrapper {
+  max-width: 30% !important;
+  width: calc(30% - var(--grid-desktop-horizontal-spacing) / 2) !important;
+}
+.custom-product__section .product__info-wrapper {
+  max-width: 70% !important;
+  width: calc(70% - var(--grid-desktop-horizontal-spacing) / 2) !important;
+}
+.custom-product__section .product__info-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+}
+.custom-product__section .information__section,
+.custom-product__section .main_atc_section {
+  max-width: 50%;
+  width: 50%;
+  margin-left: 5px;
+}
+.main_atc_section .ps-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.main_atc_section .product-sku {
+  font-weight: 400;
+  font-size: 12px;
+  font-family: "MyriadPro Regular";
+  background: #f7f7f8;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: #3f3f50;
+}
+.custom-product__section
+  .product-form__input--pill
+  input[type="radio"]
+  + label {
+  border: 1px solid #e4e7ec;
+  background-color: rgb(var(--color-background));
+  color: #344054;
+  border-radius: 2px;
+  color: rgb(var(--color-foreground));
+  display: inline-block;
+  margin: 0.7rem 0.5rem 0.2rem 0;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  font-family: "MyriadPro Regular";
+  letter-spacing: 0.1rem;
+  line-height: 20px;
+  text-align: center;
+  transition: border var(--duration-short) ease;
+  cursor: pointer;
+  position: relative;
+  min-width: 130px;
+}
+.custom-product__section
+  .product-form__input--pill
+  input[type="radio"]:checked
+  + label {
+  background-color: #51f7ce45;
+  color: #344054;
+  border: 1px solid #00ad8e;
+}
+.custom-product__section
+  .product-form__input--pill
+  input[type="radio"]:checked
+  + label
+  .price {
+  color: #00ad8e;
+  font-size: 14px;
+  z-index: 1;
+  position: relative;
+}
+.custom-product__section
+  .product-form__input--pill
+  input[type="radio"]
+  + label:hover {
+  background-color: #f7f7f7;
+}
+.custom-product__section .wrapper__atc {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  grid-gap: 10px;
+}
+.custom-product__section
+  .wrapper__atc
+  .product-form__input.product-form__quantity {
+  max-width: 25%;
+  margin-bottom: 0px;
+}
+.custom-product__section .button_atc {
+  width: 75%;
+  max-width: 75%;
+}
+.custom-product__section .product-form__submit {
+  margin-bottom: 0px;
+}
+
+.custom-product__section .product__title h1 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  font-family: "Eurostile Demi";
+}
+.custom-product__section .product-form__input .form__label {
+  display: none;
+}
+.custom-product__section .main_atc_section .atc-wrapper {
+  border: 1px solid #eaeaea;
+  padding: 20px;
+}
+.custom-product__section .product-form__input--pill label .price {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #667085;
+  font-family: "MyriadPro Regular";
+}
+.custom-product__section .price-item.price-item--regular {
+  font-size: 32px;
+  line-height: 46px;
+  color: #006747;
+  font-weight: 600;
+  font-family: "Eurostile Demi";
+}
+.custom-product__section .main_atc_section .stock_update p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 28px;
+  color: #006747;
+  font-weight: 400;
+  font-family: "MyriadPro Regular";
+}
+.custom-product__section .wrapper__atc .quantity {
+  width: calc(11rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
+  background-color: #f8f8f8;
+}
+.custom-product__section .stock_update {
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 20px;
+}
+.custom-product__section .more-content {
+  display: none;
+}
+.custom-product__section .toggle-button {
+  color: #3e4545;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "MyriadPro Regular";
+}
+.custom-product__section .text-content {
+  font-family: "MyriadPro Regular";
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.wishlist-wrapper .gree_button {
+  background-color: #13997c;
+  border: none;
+  color: #fff;
+  padding: 8px 25px;
+  margin: 0px auto;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 3px;
+  font-family: 'Eurostile Demi';
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+}
+.wishlist-wrapper {
+  text-align: center;
+  border-top: 1px solid #eaeaea;
+  padding-top: 25px;
+}
+.wishlist-wrapper .circle-svg svg {
+  vertical-align: text-top;
+  margin-right: 10px;
+}
+.main_atc_section .link {
+  width: 100%;
+  text-align: center;
+  margin-top: 5px;
+  font-family: "MyriadPro Regular";
+}
+
+.breadcrumbs .price__regular {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.main-breadcrumbs .product_price {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: "Eurostile Demi";
+}
+.main-breadcrumbs span.price-item.price-item--regular {
+  font-weight: 600;
+  font-size: 16px;
+}
+.main-breadcrumbs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main__wrapper {
+  background-color: #eaeaea;
+  margin: 0 0 3em;
+}
+
+.breadcrumbs__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-family: "MyriadPro Regular" !important;
+}
+
+.breadcrumbs__item {
+  display: inline-block;
+}
+
+.breadcrumbs__item:not(:last-child):after {
+  border-style: solid;
+  border-width: 0.1em 0.1em 0 0;
+  content: "";
+  display: inline-block;
+  height: 0.5em;
+  margin: 0 0.5em 0 0;
+  position: relative;
+  transform: rotate(45deg);
+  vertical-align: middle;
+  width: 0.5em;
+}
+
+.breadcrumbs__link {
+  text-decoration: underline;
+  color: #707070;
+}
+
+.breadcrumbs__link[aria-current="page"] {
+  color: #000000;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.breadcrumbs__link[aria-current="page"]:hover,
+.breadcrumbs__link[aria-current="page"]:focus {
+  text-decoration: underline;
+}
+
+.delivert_info h2 p,
+.delivert_info h2 {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "MyriadPro Regular";
+  line-height: 28px;
+  margin: 0;
+  color: #575757;
+}
+.delivert_info h4,
+.delivert_info h4 p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  margin: 0;
+  font-family: "MyriadPro Regular";
+  color: #575757;
+}
+.delivert_info {
+  margin-top: 25px;
+  display: flex;
+  grid-gap: 10px;
+}
+.delivert_info .wrapper_text a {
+  color: #575757;
+  font-family: "MyriadPro Regular";
+}
+li.unavailable {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+.data_block-wrapper {
+  border-bottom: 1px solid #efefef;
+}
+.title_wrapper {
+  padding: 40px 0px;
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.title_wrapper .block_title {
+  font-family: "MyriadPro Regular";
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.accordion-single-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.data_block-wrapper.is-open .accordion-single-content {
+  max-height: max-content;
+  padding-bottom: 30px;
+  font-family: "MyriadPro Regular";
+}
+.data_block-wrapper.is-open .accordion-single-content h3,
+.data_block-wrapper.is-open .accordion-single-content ul {
+  font-family: "MyriadPro Regular";
+}
+.title_wrapper svg {
+  stroke: #000;
+}
+.data_block-wrapper.is-open svg {
+  transform: rotate(90deg);
+}
+
+.product-metafields-inner__wrapper table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.product-metafields-inner__wrapper th,
+.product-metafields-inner__wrapper td {
+  text-align: left;
+  padding: 8px;
+}
+
+.product-metafields-inner__wrapper td {
+  border-right: 1px solid #c5c5c5;
+  border-collapse: collapse;
+}
+.product-metafields-inner__wrapper td:first-of-type {
+  font-size: 16px;
+  font-family: "MyriadPro Regular";
+  padding-left: 24px;
+  padding-right: 30px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.product-metafields-inner__wrapper td:last-of-type {
+  font-family: "Inter";
+}
+.product-metafields-inner__wrapper table {
+  border: 1px solid #c5c5c5;
+  border-collapse: collapse;
+}
+.product-metafields-inner__wrapper tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.product-metafields-inner__wrapper .text-block {
+  max-width: 65%;
+  margin-right: auto;
+}
+.quantity__button:not(:focus-visible):not(.focused),
+.quantity__input:not(:focus-visible):not(.focused) {
+  box-shadow: none;
+  background-color: transparent;
+}
+.quantity:after,
+.quantity:before {
+  border-radius: 3px;
+}
+.button {
+  position: relative;
+  z-index: 0;
+  -webkit-transition: border-color 0.35s ease, background 0.35s ease;
+  transition: border-color 0.35s ease, background 0.35s ease;
+  color: #000000;
+  border-radius: 3px;
+}
+
+.button:before {
+  background-color: #ffe399;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 3px;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.button:hover:before {
+  top: 0;
+}
+.button:hover {
+  color: #2a4556;
+  transition: 0.25s;
+}
+
+.product-form__buttons span,
+.buy_button_head {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Eurostile Demi";
+}
+.custom-product__section .button:after,
+.main-breadcrumbs .button:after {
+  content: none;
+}
+.var-size-wrapper span.var-size {
+  background: #f7f7f8;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  margin-right: 10px;
+}
+.contact-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px 20px;
+  margin-top: 30px;
+  background: linear-gradient(
+    88.6deg,
+    rgba(255, 241, 204, 0.3) 0.41%,
+    rgba(255, 234, 179, 0.3) 99.16%
+  );
+  border: 1px solid #ffe399;
+  border-radius: 50px;
+  font-family: "MyriadPro Regular";
+}
+
+.contact-wrapper .contact-heading h4.h4 {
+  font-weight: 600;
+  font-family: "MyriadPro Regular";
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.contact-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.contact-details .info {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding: 0;
+}
+.contact-details .info p {
+  margin: 0;
+}
+.contact-wrapper .contact-image img {
+  vertical-align: middle;
+}
+.contact-details .info p a {
+  color: #13997c;
+}
+.quantity__button svg {
+  width: 1rem;
+  pointer-events: none;
+}
+.custom-product__section
+  .product-form__input--pill
+  input[type="radio"]:checked
+  + label
+  .variant-price {
+  color: #00ad8e;
+}
+.data-sheet-entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.data_block-wrapper.is-open .data-sheet-entry svg{
+  width: 20px;
+  height: 20px;
+  transform: none;
+}
+.data-sheet-link {
+  text-decoration: underline;
+  color: #1a1a1a;
+}
+
+@media (max-width: 769px) {
+  .custom-product__section .product__info-container {
+    display: block;
+  }
+  .custom-product__section .information__section,
+  .custom-product__section .main_atc_section {
+    max-width: 100%;
+    width: 100%;
+  }
+  .product-metafields-inner__wrapper .text-block {
+    max-width: 100%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .main__wrapper {
+    background-color: transparent;
+  }
+  .product_price {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #eee;
+  }
+
+  .product_price .button {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 525px) {
+  .custom-product__section .grid__item.product__media-wrapper,
+  .custom-product__section .product__info-wrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
